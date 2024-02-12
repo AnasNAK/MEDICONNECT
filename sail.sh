@@ -3,7 +3,6 @@ docker info > /dev/null 2>&1
 # Ensure that Docker is running...
 if [ $? -ne 0 ]; then
     echo "Docker is not running."
-
     exit 1
 fi
 
@@ -15,6 +14,9 @@ docker run --rm \
     bash -c "laravel new Mediconnect-structure --no-interaction && cd Mediconnect-structure && php ./artisan sail:install --with=mysql "
 
 cd Mediconnect-structure
+
+# Install pdo_mysql extension
+./vendor/bin/sail composer require doctrine/dbal
 
 # Allow build with no additional services..
 if [ "mysql" == "none" ]; then

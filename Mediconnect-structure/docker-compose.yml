@@ -6,8 +6,8 @@ services:
       context: ./vendor/laravel/sail/runtimes/8.3
       dockerfile: Dockerfile
       args:
-        WWWGROUP: '${WWWGROUP:-www-data}' # Provide default value if not set
-        WWWUSER: '${WWWUSER:-laravel}'    # Provide default value if not set
+        WWWGROUP: '${WWWGROUP:-www-data}' 
+        WWWUSER: '${WWWUSER:-laravel}'    
     image: sail-8.3/app
     extra_hosts:
       - 'host.docker.internal:host-gateway'
